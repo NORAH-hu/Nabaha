@@ -1,7 +1,5 @@
-# Nabaha
+# Nabaha: EduChat AI
 You are a senior software engineer and AI architect. Help me design and plan a web-based platform that provides intelligent educational chat sessions to students.
-
-## Project Name: EduChat AI
 
 ## OBJECTIVE:
 Create a user-friendly website that allows students to:
