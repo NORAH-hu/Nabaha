@@ -1,0 +1,69 @@
+Here's a clear, ready-to-implement description for the "Mastery Level" feature in English:
+
+**Mastery Level Indicator Feature Description:**
+
+**1. Visual Design:**
+- A circular icon (approx. 30px diameter) positioned in top-right corner of chat interface
+- Dynamic color scheme:
+  - 🟢 Green (80-100% mastery)
+  - 🟡 Yellow (60-79% mastery)
+  - 🔴 Red (<60% mastery)
+- Subtle pulse animation when level changes
+
+**2. Core Functionality:**
+- Real-time calculation based on:
+  - Quiz/question performance
+  - Chat interaction quality
+  - Uploaded material analysis
+- One-click expansion to detailed view
+
+**3. Detailed Report (on click):**
+📊 **Performance Dashboard:**
+- Progress chart showing improvement over time
+- Skill distribution radar graph
+- Comparison to class average (if available)
+
+📝 **Personalized Insights:**
+- Top 3 recurring mistakes
+- AI-generated study recommendations
+- "Focus Areas" highlight
+
+🎯 **Actionable Items:**
+- 3-5 practice exercises
+- Recommended video tutorials
+- Key textbook pages to review
+
+**4. Example User Flow:**
+1. Student answers calculus questions incorrectly
+2. Icon turns red with tooltip: "Needs improvement: Derivatives"
+3. Click reveals:
+   - Mistake pattern: "Confusing chain rule applications"
+   - Suggested resources:
+     - Video: "Mastering Chain Rule (15 min)"
+     - Practice problems (with solutions)
+     - Textbook Chapter 3 summary
+
+**5. Technical Requirements:**
+- Integration with existing:
+  - Chat system (for interaction analysis)
+  - Quiz/assessment module
+  - Resource library
+- Responsive design (mobile/desktop)
+- Dark/light mode compatibility
+- Optional push notifications for significant changes
+
+**6. Settings Options:**
+- Toggle on/off entire feature
+- Adjust notification preferences
+- Set custom mastery thresholds
+- Export report as PDF
+
+**Implementation Notes:**
+1. Phase 1: Basic icon with color-changing logic
+2. Phase 2: Detailed report expansion
+3. Phase 3: Advanced analytics integration
+
+Would you like me to:
+1. Provide sample API endpoints for the mastery calculation?
+2. Suggest animation styles for the icon?
+3. Outline the data structure for storing mastery reports?
