@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(231, 80%, 60%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(142, 76%, 36%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --warning: hsl(38, 92%, 50%);
+  --warning-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(222, 84%, 4.9%);
+  --foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217, 32%, 17.5%);
+  --muted-foreground: hsl(215, 20.2%, 65.1%);
+  --popover: hsl(222, 84%, 4.9%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --card: hsl(222, 84%, 4.9%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217, 32%, 17.5%);
+  --input: hsl(217, 32%, 17.5%);
+  --primary: hsl(231, 80%, 60%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(217, 32%, 17.5%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(142, 76%, 36%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --warning: hsl(38, 92%, 50%);
+  --warning-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(212, 32%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    direction: rtl;
+  }
+
+  html[dir="ltr"] {
+    direction: ltr;
+  }
+}
+
+@layer components {
+  .rtl {
+    direction: rtl;
+  }
+
+  .ltr {
+    direction: ltr;
+  }
+
+  /* Custom Arabic font support */
+  .font-arabic {
+    font-family: 'Cairo', 'Amiri', 'Noto Sans Arabic', system-ui, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+  }
+
+  /* Chat message styling */
+  .chat-bubble-user {
+    @apply bg-primary text-primary-foreground rounded-2xl rounded-tl-sm p-4 max-w-md ml-auto;
+  }
+
+  .chat-bubble-ai {
+    @apply bg-muted text-muted-foreground rounded-2xl rounded-tr-sm p-4 max-w-md mr-auto;
+  }
+
+  /* Mastery indicator colors */
+  .mastery-high {
+    @apply text-accent border-accent;
+  }
+
+  .mastery-medium {
+    @apply text-warning border-warning;
+  }
+
+  .mastery-low {
+    @apply text-destructive border-destructive;
+  }
+
+  /* Progress bars */
+  .progress-bar {
+    @apply w-full bg-muted rounded-full h-2 overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full transition-all duration-300 ease-out;
+  }
+
+  .progress-high {
+    @apply bg-accent;
+  }
+
+  .progress-medium {
+    @apply bg-warning;
+  }
+
+  .progress-low {
+    @apply bg-destructive;
+  }
+
+  /* Arabic number styling */
+  .arabic-numbers {
+    font-variant-numeric: arabic-indic;
+  }
+
+  /* File upload zone */
+  .upload-zone {
+    @apply border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary transition-colors cursor-pointer;
+    background-color: hsl(var(--muted) / 0.5);
+  }
+
+  .upload-zone.dragover {
+    @apply border-primary;
+    background-color: hsl(var(--primary) / 0.05);
+  }
+
+  /* Subscription plan cards */
+  .plan-card {
+    @apply bg-card rounded-2xl p-8 shadow-lg border border-border hover:shadow-xl transition-all duration-300;
+  }
+
+  .plan-card.special {
+    @apply border-warning relative overflow-hidden;
+  }
+
+  .plan-card.selected {
+    @apply border-primary shadow-lg scale-105;
+  }
+
+  /* Dark mode specific adjustments */
+  .dark .upload-zone {
+    background-color: hsl(var(--muted) / 0.2);
+  }
+
+  .dark .chat-bubble-ai {
+    @apply bg-card text-card-foreground;
+  }
+
+  /* Smooth transitions for theme switching */
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  /* RTL-specific utilities */
+  .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  /* Arabic text utilities */
+  .text-arabic {
+    font-family: 'Cairo', 'Amiri', 'Noto Sans Arabic', system-ui, sans-serif;
+    text-align: right;
+  }
+
+  /* Custom color utilities */
+  .text-warning {
+    color: hsl(var(--warning));
+  }
+
+  .bg-warning {
+    background-color: hsl(var(--warning));
+  }
+
+  .border-warning {
+    border-color: hsl(var(--warning));
+  }
+
+  .text-warning-foreground {
+    color: hsl(var(--warning-foreground));
+  }
+
+  .bg-warning\/10 {
+    background-color: hsl(var(--warning) / 0.1);
+  }
+
+  .bg-warning\/20 {
+    background-color: hsl(var(--warning) / 0.2);
+  }
+
+  .border-warning\/20 {
+    border-color: hsl(var(--warning) / 0.2);
+  }
+
+  .hover\:bg-warning\/90:hover {
+    background-color: hsl(var(--warning) / 0.9);
+  }
+
+  /* Animation utilities */
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+
+  /* Scroll utilities for RTL */
+  .scroll-smooth-rtl {
+    scroll-behavior: smooth;
+    direction: rtl;
+  }
+}
+
+/* Custom animations */
+@keyframes mastery-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.mastery-pulse {
+  animation: mastery-pulse 2s ease-in-out infinite;
+}
+
+/* Print styles for reports */
+@media print {
+  .print-hidden {
+    display: none !important;
+  }
+
+  .print-page-break {
+    page-break-before: always;
+  }
+}
+
+/* Loading spinner for Arabic context */
+.loading-spinner {
+  border: 3px solid hsl(var(--muted));
+  border-top: 3px solid hsl(var(--primary));
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
